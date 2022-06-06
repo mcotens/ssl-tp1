@@ -1,25 +1,33 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <ctype.h>
 
 // Nombre y apellido:
 // Matias Nahuel Cotens
 
 int main(int argc, char *argv[]){
-    char caracter, caracterModificado;
-    while(caracter = getchar()){
+    char caracter;
+    //El EOF será '\n'.
+    
+    while((caracter = getchar()) != '\n'){
+
         if(isupper(caracter)){
+
             //Si es mayuscula, mostrarlo en minuscula
-            caracterModificado = tolower(caracter);
-            printf("%c", caracterModificado);
+            putchar(tolower(caracter));
+
         } else if(islower(caracter)){
+
             //Si es minuscula, mostrarlo en mayuscula
-            caracterModificado = toupper(caracter);
-            printf("%c", caracterModificado);
-        } else if(isdigit(caracter)){
-            //Si es decimal, no hacer nada
-        } else{
-            //En cualquier otro caso, mostrarlo sin modificar
-            printf("%c", caracter);
+            putchar(toupper(caracter));
+
+        } else if(!isdigit(caracter)){
+
+            //Si no es decimal, mostrarlo sin modificar
+            putchar(caracter);
+
         }
+        //Si es digito decimal, no lo muestra
     }
+    return EXIT_SUCCESS;
 }
