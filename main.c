@@ -7,9 +7,9 @@
 
 int main(int argc, char *argv[]){
     char caracter;
-    //El EOF será '\n'.
+    //Al ingresar ctrl+Z (Windows), el programa finaliza.
     
-    while((caracter = getchar()) != '\n'){
+    while((caracter = getchar()) != EOF){
 
         if(isupper(caracter)){
 
